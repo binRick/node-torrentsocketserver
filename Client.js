@@ -19,6 +19,7 @@ var socket = io.connect('http://' + host + ':' + port + '/fileRequest');
 var iS = null;
 var sent = 0;
 
+/*
 var dFile = __dirname + '/streamHttpFile_tester';
 var stream = ss.createStream();
 var sent = 0;
@@ -35,8 +36,8 @@ ss(socket).emit('streamHttpFile', stream, {
     url: url,
 });
 stream.pipe(fs.createWriteStream(dFile));
-/*
-socket.emit('1magnet', magnet, function(err, Files) {
+*/
+socket.emit('magnet', magnet, function(err, Files) {
     if (err) throw err;
     console.log('Files', Files);
     _.each(Files, function(file) {
@@ -58,4 +59,3 @@ socket.emit('1magnet', magnet, function(err, Files) {
         stream.pipe(fs.createWriteStream(dFile));
     });
 });
-*/
